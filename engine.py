@@ -49,6 +49,9 @@ def greet(name):
 # [SEC C START] Math helpers
 def add(a, b):
     return a + b
+
+def multiply(a, b):
+    return a * b
 # SEC C filler 001
 # SEC C filler 002
 # SEC C filler 003
@@ -156,7 +159,8 @@ def compute_version():
 # [SEC E END]
 
 # [SEC F START] Flags
-FEATURE_X = False
+FEATURE_X = True
+FEATURE_Y = False
 # SEC F filler 001
 # SEC F filler 002
 # SEC F filler 003
@@ -190,8 +194,8 @@ FEATURE_X = False
 # [SEC F END]
 
 # [SEC G START] IO helpers
-def write_file(p, text, mode="w"):
-    open(p, mode).write(text)
+def write_file(p, text):
+    open(p, "w").write(text)
 # SEC G filler 001
 # SEC G filler 002
 # SEC G filler 003
@@ -226,7 +230,7 @@ def write_file(p, text, mode="w"):
 
 # [SEC H START] Main
 if __name__ == "__main__":
-    print(greet("MAIN"))
+    print(greet("world"))
 # SEC H filler 001
 # SEC H filler 002
 # SEC H filler 003
