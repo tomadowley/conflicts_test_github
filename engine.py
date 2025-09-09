@@ -39,41 +39,11 @@ MODE = "dev"
 # [SEC A END]
 
 # [SEC B START] Greetings
-GREETING = "Howdy from FEATURE"
-SIGNOFF = "Thanks,"
+GREETING = "Hello from MAIN v2"
+SIGNOFF = "Cheers,"
 def greet(name):
-    # feature chooses different punctuation & placement
-    return f"{SIGNOFF} {name}. {GREETING}"
-# SEC B filler 001
-# SEC B filler 002
-# SEC B filler 003
-# SEC B filler 004
-# SEC B filler 005
-# SEC B filler 006
-# SEC B filler 007
-# SEC B filler 008
-# SEC B filler 009
-# SEC B filler 010
-# SEC B filler 011
-# SEC B filler 012
-# SEC B filler 013
-# SEC B filler 014
-# SEC B filler 015
-# SEC B filler 016
-# SEC B filler 017
-# SEC B filler 018
-# SEC B filler 019
-# SEC B filler 020
-# SEC B filler 021
-# SEC B filler 022
-# SEC B filler 023
-# SEC B filler 024
-# SEC B filler 025
-# SEC B filler 026
-# SEC B filler 027
-# SEC B filler 028
-# SEC B filler 029
-# SEC B filler 030
+    # main style greeting with signoff inline
+    return f"{GREETING} {name}! {SIGNOFF}"
 # [SEC B END]
 
 # [SEC C START] Math helpers
@@ -115,9 +85,9 @@ def multiply(a, b):
 # [SEC C END]
 
 # [SEC D START] Logger
-LEVEL = "WARN"
+LEVEL = "DEBUG"
 def get_logger():
-    fmt = "[%(levelname)s] %(name)s: %(message)s"  # feature adds logger name
+    fmt = "%(asctime)s [%(levelname)s] %(message)s"  # main adds timestamp
     return (LEVEL, fmt)
 # SEC D filler 001
 # SEC D filler 002
@@ -152,10 +122,10 @@ def get_logger():
 # [SEC D END]
 
 # [SEC E START] Versioning
-VERSION = "1.5.0"
+VERSION = "2.0.0"
 def compute_version():
-    # feature appends -feature
-    return VERSION + "-feature"
+    # main appends -main
+    return VERSION + "-main"
 # SEC E filler 001
 # SEC E filler 002
 # SEC E filler 003

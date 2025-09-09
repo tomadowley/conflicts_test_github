@@ -38,10 +38,10 @@ version: 1
 <!-- Ch1 filler 029 -->
 <!-- Ch1 filler 030 -->
 
-# Chapter 2: Coding Standards
-- Use black/ruff (lenient)
-- 100-col limit
-- Docstrings preferred, type hints optional
+# Chapter 2: Engineering Standards
+- Use black/ruff (strict)
+- 88-col limit
+- Type hints enforced
 <!-- Ch2 filler 001 -->
 <!-- Ch2 filler 002 -->
 <!-- Ch2 filler 003 -->
@@ -185,6 +185,8 @@ version: 1
 - SEV1 page immediately
 - RCA start within 48h
 - Postmortem by end of week
+- Initial RCA within 24h
+- Full postmortem within 72h
 <!-- Ch6 filler 001 -->
 <!-- Ch6 filler 002 -->
 <!-- Ch6 filler 003 -->
