@@ -39,16 +39,51 @@ MODE = "dev"
 # [SEC A END]
 
 # [SEC B START] Greetings
+GREETING = "Howdy from FEATURE"
+SIGNOFF = "Thanks,"
 GREETING = "Hello from MAIN v2"
 SIGNOFF = "Cheers,"
 def greet(name):
-    # main style greeting with signoff inline
-    return f"{GREETING} {name}! {SIGNOFF}"
+    # feature chooses different punctuation & placement
+    return f"{SIGNOFF} {name}. {GREETING}"
+# SEC B filler 001
+# SEC B filler 002
+# SEC B filler 003
+# SEC B filler 004
+# SEC B filler 005
+# SEC B filler 006
+# SEC B filler 007
+# SEC B filler 008
+# SEC B filler 009
+# SEC B filler 010
+# SEC B filler 011
+# SEC B filler 012
+# SEC B filler 013
+# SEC B filler 014
+# SEC B filler 015
+# SEC B filler 016
+# SEC B filler 017
+# SEC B filler 018
+# SEC B filler 019
+# SEC B filler 020
+# SEC B filler 021
+# SEC B filler 022
+# SEC B filler 023
+# SEC B filler 024
+# SEC B filler 025
+# SEC B filler 026
+# SEC B filler 027
+# SEC B filler 028
+# SEC B filler 029
+# SEC B filler 030
 # [SEC B END]
 
 # [SEC C START] Math helpers
 def add(a, b):
     return a + b
+
+def multiply(a, b):
+    return a * b
 # SEC C filler 001
 # SEC C filler 002
 # SEC C filler 003
@@ -82,9 +117,9 @@ def add(a, b):
 # [SEC C END]
 
 # [SEC D START] Logger
-LEVEL = "DEBUG"
+LEVEL = "WARN" jdnfljdnfbondsfgbsfggssfgn
 def get_logger():
-    fmt = "%(asctime)s [%(levelname)s] %(message)s"  # main adds timestamp
+    fmt = "[%(levelname)s] %(name)s: %(message)s"  # feature adds logger name
     return (LEVEL, fmt)
 # SEC D filler 001
 # SEC D filler 002
@@ -119,10 +154,10 @@ def get_logger():
 # [SEC D END]
 
 # [SEC E START] Versioning
-VERSION = "2.0.0"
+VERSION = "1.5.0"
 def compute_version():
-    # main appends -main
-    return VERSION + "-main"
+    # feature appends -feature
+    return VERSION + "-feature"
 # SEC E filler 001
 # SEC E filler 002
 # SEC E filler 003
@@ -156,7 +191,8 @@ def compute_version():
 # [SEC E END]
 
 # [SEC F START] Flags
-FEATURE_X = False
+FEATURE_X = True
+FEATURE_Y = False
 # SEC F filler 001
 # SEC F filler 002
 # SEC F filler 003
@@ -190,8 +226,8 @@ FEATURE_X = False
 # [SEC F END]
 
 # [SEC G START] IO helpers
-def write_file(p, text, mode="w"):
-    open(p, mode).write(text)
+def write_file(p, text):
+    open(p, "w").write(text)
 # SEC G filler 001
 # SEC G filler 002
 # SEC G filler 003
@@ -226,7 +262,7 @@ def write_file(p, text, mode="w"):
 
 # [SEC H START] Main
 if __name__ == "__main__":
-    print(greet("MAIN"))
+    print(greet("world"))
 # SEC H filler 001
 # SEC H filler 002
 # SEC H filler 003

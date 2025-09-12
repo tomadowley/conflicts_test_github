@@ -2,8 +2,6 @@
 
 -- [STAGE 1 START] prepare users
 CREATE TEMP TABLE t_users AS
--- main adds constraint
--- (simulated) ALTER TABLE t_users ADD PRIMARY KEY (id);
 SELECT id, name, active
 FROM users
 WHERE deleted = false;
@@ -118,7 +116,8 @@ LEFT JOIN purchases p ON p.user_id = a.id;
 CREATE TEMP TABLE t_rev AS
 SELECT id, SUM(amount * 1.05) AS revenue  -- main applies uplift
 FROM t_join
-GROUP BY id;
+GROUP BY id
+HAVING SUM(amount) > 0;
 -- S4 filler 001
 -- S4 filler 002
 -- S4 filler 003
@@ -152,8 +151,8 @@ GROUP BY id;
 -- [STAGE 4 END]
 
 -- [STAGE 5 START] write outputs
-INSERT INTO reporting.users_daily (id, name, revenue, dt)
-SELECT j.id, j.name, r.revenue, CURRENT_DATE
+INSERT INTO reporting.users_daily (id, name, revenue, yyyymm)
+SELECT j.id, j.name, r.revenue, TO_CHAR(CURRENT_DATE, 'YYYYMM')
 FROM t_join j
 JOIN t_rev r USING (id);
 -- main keeps dt as DATE partition
@@ -190,7 +189,7 @@ JOIN t_rev r USING (id);
 -- [STAGE 5 END]
 
 -- [STAGE 6 START] finalize
-VACUUM ANALYZE;
+ANALYZE VERBOSE;  -- feature alternative finalization
 -- S6 filler 001
 -- S6 filler 002
 -- S6 filler 003
