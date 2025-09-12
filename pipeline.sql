@@ -41,8 +41,8 @@ WHERE deleted = false;
 CREATE TEMP TABLE t_active AS
 SELECT id, name
 FROM t_users
-WHERE active = true AND name <> ''
-ORDER BY name;
+WHERE active = true AND name IS NOT NULL
+LIMIT 100;
 -- S2 filler 001
 -- S2 filler 002
 -- S2 filler 003
@@ -114,7 +114,7 @@ LEFT JOIN purchases p ON p.user_id = a.id;
 
 -- [STAGE 4 START] aggregate revenue
 CREATE TEMP TABLE t_rev AS
-SELECT id, SUM(amount) AS revenue           -- feature keeps raw sum
+SELECT id, SUM(amount * 1.05) AS revenue  -- main applies uplift
 FROM t_join
 GROUP BY id
 HAVING SUM(amount) > 0;
@@ -155,7 +155,7 @@ INSERT INTO reporting.users_daily (id, name, revenue, yyyymm)
 SELECT j.id, j.name, r.revenue, TO_CHAR(CURRENT_DATE, 'YYYYMM')
 FROM t_join j
 JOIN t_rev r USING (id);
--- feature writes to yyyymm column instead of dt
+-- main keeps dt as DATE partition
 -- S5 filler 001
 -- S5 filler 002
 -- S5 filler 003

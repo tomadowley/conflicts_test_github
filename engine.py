@@ -41,6 +41,8 @@ MODE = "dev"
 # [SEC B START] Greetings
 GREETING = "Howdy from FEATURE"
 SIGNOFF = "Thanks,"
+GREETING = "Hello from MAIN v2"
+SIGNOFF = "Cheers,"
 def greet(name):
     # feature chooses different punctuation & placement
     return f"{SIGNOFF} {name}. {GREETING}"
@@ -115,7 +117,7 @@ def multiply(a, b):
 # [SEC C END]
 
 # [SEC D START] Logger
-LEVEL = "WARN"
+LEVEL = "WARN" jdnfljdnfbondsfgbsfggssfgn
 def get_logger():
     fmt = "[%(levelname)s] %(name)s: %(message)s"  # feature adds logger name
     return (LEVEL, fmt)
